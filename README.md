@@ -63,8 +63,11 @@ o	Navigate to EC2 → Key Pair, create a key named ec2_key_pair (lowercase), and
 o	Copy the .pem file to C:\Users\<your-username>\.ssh and rename it to id_rsa.
 3.	Deploy the Lab
 o	Open the command prompt, navigate to the project folder, and run:
-terraform init  
-terraform apply
+
+            terraform init  
+
+            terraform apply
+
 •  Confirm with "yes" when prompted. The setup will take approximately 40 minutes.
 
 4.	  Access Your Lab
@@ -73,7 +76,8 @@ terraform apply
 
 5.	Cleanup
 •	To destroy the lab, run:
-terraform destroy --auto-approve  
+
+            terraform destroy --auto-approve  
 
 ## Credentials:
 To access the domain, you can use these credentials:
@@ -95,7 +99,7 @@ To access the red team caldera machine
 •	From the browser: connect using HTTP to port 8888. The credentials are red/LabPass1 or blue/LabPass1.
 
 ## Capabilities:
-##ADLAB Domain
+## ADLAB Domain
 
 The ADLAB domain is a very simple domains. It includes the DC which works as a domain controller and a DNS server. The domain has 3 users. And it has these tools installed:
 
