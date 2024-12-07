@@ -125,54 +125,53 @@ The ADLAB domain is a very simple domains. It includes the DC which works as a d
 
 •	Chrome installed as well.
 
-The whole domain is created using Powershell scripts which makes the creation highly customizable and a good learning material. Feel free to read, modify and update Setup-AD.ps1 and Setup-Workstation.ps1 scripts.
-Also feel free to add additional machines and users and execute Setup-Workstaion.ps1 or a modified version of it for each additional machine you add to the AD
-I decided to not use Ansible in this project to make it a good learning material for you. But definitely with Ansible, it will be much easier to develop.
+The whole domain is created using Powershell scripts which makes the creation highly customizable and a good learning material. Feel free to read, modify, and update Setup-AD.ps1 and Setup-Workstation.ps1 scripts.
+Also, feel free to add additional machines and users and execute Setup-Workstaion.ps1 or a modified version of it for each additional machine you add to the AD
+I decided to not use Ansible in this project to make it a good learning material for you. But, with Ansible, it will be much easier to develop.
 
 ## Blue Team HELK Machine
 This machine is created not just for log analysis but also for more in-depth investigation. It includes:
 
-•	Threat Hunting ELK: Which has elasticsearch, kibana, logstash and elastialert. All running docker images receive all the sysmon and the other logs using winlogbeat.
+•	Threat Hunting ELK: This has elasticsearch, kibana, logstash and elastialert. All running docker images receive all the sysmon and the other logs using winlogbeat.
 
 •	Sigma Rules: Sigma is useful in creating new alerts or new detections, you can compile them for elastialert. Please follow HELK documentation for how to do that.
 
-•	Powershell Remoting: Powershell remoting installation is quite tricky to work on Linux but it's here and it's working like a charm. It's very useful to connect directly to ADLAB domain and perform some actions as a blue teamer to investigate attacks or transfer files to the ADLAB domain.
+•	Powershell Remoting: Powershell remoting installation is quite tricky to work on Linux but it's here and working like a charm. It's very useful to connect directly to ADLAB domain and perform some actions as a blue teamer to investigate attacks or transfer files to the ADLAB domain.
 
-•	Kansa & Kape: Both these tools are known for DFIR and remote triage. Kansa.ps1 won't work properly on Linux but you can execute its modules directly on the AD machines using powershell remoting
+•	Kansa & Kape: Both these tools are known for DFIR and remote triage. Kansa.ps1 won't work properly on Linux but you can execute its modules directly on the AD machines using PowerShell remoting
 
 •	Volatility: volatility is a known tool for memory forensics and here we have volatility and volatility3 (with its symbols) installed by default with all their additional modules
 
-•	Dumpit: Dumpit is a known tool to create a memory dump on windows machine, it's included inside tools folder, transfer it to the AD machines using Powershell remoting and collect the memory dump back
+•	Dumpit: Dumpit is a known tool to create a memory dump on Windows machine, it's included inside the tools folder, transfer it to the AD machines using Powershell remoting, and collects the memory dump back
 
-•	Python2 and Python3: We have both python2 & 3 installed, just be careful when you are using python or pip
+•	Python2 and Python3: We have both python2 & 3 installed, just be careful when you are using Python or pip
 
-To use powershell remoting:
+To use PowerShell remoting:
 This script will connect to ADLAB Domain controller, feel free to update it to connect to the workstation or to use another user.
 
-                  $DefaultPassword = "LabPass1"
-                  $IPAddr = "192.168.10.100"
-                  $securePassword = ConvertTo-SecureString -AsPlainText -Force $DefaultPassword
-                  $ddean = New-Object System.Management.Automation.PSCredential "adlab\ddean", $securePassword
-                  Enter-PSSession -ComputerName $IPAddr -Authentication Negotiate -Credential $ddean
+         $DefaultPassword = "LabPass1"
+         $IPAddr = "192.168.10.100"
+         $securePassword = ConvertTo-SecureString -AsPlainText -Force $DefaultPassword
+         $ddean = New-Object System.Management.Automation.PSCredential "adlab\ddean", $securePassword
+         Enter-PSSession -ComputerName $IPAddr -Authentication Negotiate -Credential $ddean
 
 ## Red Team Caldera
-This machine has Caldera installed. Using caldera, you can drop a backdoor into your ADLAB machines and use it to control the domain, execute powershell commands remotely and simulate over 800 MITRE ATT&CK techniques. Caldera has up to 4 different types of backdoors and it's built by MITRE organization itself.
+This machine has Caldera installed. Using Caldera, you can drop a backdoor into your ADLAB machines and use it to control the domain, execute PowerShell commands remotely, and simulate over 800 MITRE ATT&CK techniques. Caldera has up to 4 different types of backdoors and it's built by MITRE organization itself.
 
 ## Use Cases
 •	Simulating different attacks and see what type of footprint they leave on the logs or on the system
 
-
 •	Test different attack techniques and develop detections for them
 
-•	Customize the ADLAB environment to simulate your organization environment, test different attack techiques and look for gaps in your organization logs and your detections (Purple teaming)
+•	Customize the ADLAB environment to simulate your organization environment, test different attack techniques and look for gaps in your organization logs and your detections (Purple teaming)
 
 •	EDR Testing lab
 
 •	Product Security Lab
 
-•	Enterprise Active Directory lab with domain joined devices
+•	Enterprise Active Directory lab with domain-joined devices
 
-•	Malware / reverse engineering to study artifacts against domain joined devices
+•	Malware/ reverse engineering to study artifacts against domain-joined devices
 
 •	SIEM / Threat Hunting / DFIR / Live Response lab with HELK
 
