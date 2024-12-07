@@ -83,15 +83,19 @@ To access the domain, you can use these credentials:
 •	adlab\ddean, Pass:LabPass1: This is the domain admin account, you can use it to access both machines as a domain admin
 
 •	adlab\kbaehr, Pass:LabPass1: This is the workstation user, it doesn't have admin privileges (Possible privilege escalation?). Feel free to add him to the local admin group if you want to test UAC bypasses
+
 To access the blue team machine HELK
 •	SSH: you can connect using ssh ec2-user@<blueteam public ip> and it will use your key pair you moved to .ssh folder and renamed to id_rsa
+
 •	From the browser: use the machine public IP and connect to it using https from your browser with credentials: helk/LabPass1
+
 To access the red team caldera machine
-•	SSH: you can connect using ssh ec2-user@<redteam public ip>
+•	SSH: you can connect using ssh ec2-user@<redteam public IP>
+
 •	From the browser: connect using HTTP to port 8888. The credentials are red/LabPass1 or blue/LabPass1.
 
 ## Capabilities:
-ADLAB Domain
+##ADLAB Domain
 
 The ADLAB domain is a very simple domains. It includes the DC which works as a domain controller and a DNS server. The domain has 3 users. And it has these tools installed:
 
@@ -128,13 +132,14 @@ This machine is created not just for log analysis but also for more in-depth inv
 
 To use powershell remoting:
 This script will connect to ADLAB Domain controller, feel free to update it to connect to the workstation or to use another user.
+
 $DefaultPassword = "LabPass1"
 $IPAddr = "192.168.10.100"
 $securePassword = ConvertTo-SecureString -AsPlainText -Force $DefaultPassword
 $ddean = New-Object System.Management.Automation.PSCredential "adlab\ddean", $securePassword
 Enter-PSSession -ComputerName $IPAddr -Authentication Negotiate -Credential $ddean
 
-Red Team Caldera
+## Red Team Caldera
 This machine has Caldera installed. Using caldera, you can drop a backdoor into your ADLAB machines and use it to control the domain, execute powershell commands remotely and simulate over 800 MITRE ATT&CK techniques. Caldera has up to 4 different types of backdoors and it's built by MITRE organization itself.
 
 ## Use Cases
