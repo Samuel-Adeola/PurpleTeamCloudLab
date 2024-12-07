@@ -79,7 +79,8 @@ Open the command prompt, navigate to the project folder, and run:
 •  Confirm with "yes" when prompted. The setup will take approximately 40 minutes.
 
 4.	  Access Your Lab:
-•	Use provided credentials (see below) to access different machines.
+   
+•	Use the provided credentials (see below) to access different machines.
 
 •	Remember, keeping the lab running will incur AWS costs.
 
