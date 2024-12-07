@@ -75,9 +75,12 @@ terraform apply
 terraform destroy --auto-approve  
 
 ## Credentials:
-To access the domain, you can use these credentials
+To access the domain, you can use these credentials:
+
 •	Administrator, Pass:LabPass1: this is the local admin account, you can use it remotely with RDP or powershell remoting
+
 •	adlab\ddean, Pass:LabPass1: This is the domain admin account, you can use it to access both machines as a domain admin
+
 •	adlab\kbaehr, Pass:LabPass1: This is the workstation user, it doesn't have admin privileges (Possible privilege escalation?). Feel free to add him to the local admin group if you want to test UAC bypasses
 To access the blue team machine HELK
 •	SSH: you can connect using ssh ec2-user@<blueteam public ip> and it will use your key pair you moved to .ssh folder and renamed to id_rsa
@@ -88,11 +91,17 @@ To access the red team caldera machine
 
 ## Capabilities:
 ADLAB Domain
+
 The ADLAB domain is a very simple domains. It includes the DC which works as a domain controller and a DNS server. The domain has 3 users. And it has these tools installed:
+
 •	Sysmon and winlogbeat for Log Analysis
+
 •	Powershell remoting installed and configured to use (with self-signed certificates)
+
 •	Atomic Red Team installed (for red team simulations)
+
 •	Wireshark installed using chocolatey
+
 •	Chrome installed as well.
 
 The whole domain is created using Powershell scripts which makes the creation highly customizable and a good learning material. Feel free to read, modify and update Setup-AD.ps1 and Setup-Workstation.ps1 scripts.
@@ -101,12 +110,19 @@ I decided to not use Ansible in this project to make it a good learning material
 
 ## Blue Team HELK Machine
 This machine is created not just for log analysis but also for more in-depth investigation. It includes:
-•	Threat Hunting ELK: Which has elasticsearch, kibana, logstash and elastialert. All running as docker images and they receive all the sysmon and the other logs using winlogbeat.
+
+•	Threat Hunting ELK: Which has elasticsearch, kibana, logstash and elastialert. All running docker images receive all the sysmon and the other logs using winlogbeat.
+
 •	Sigma Rules: Sigma is useful in creating new alerts or new detections, you can compile them for elastialert. Please follow HELK documentation for how to do that.
+
 •	Powershell Remoting: Powershell remoting installation is quite tricky to work on Linux but it's here and it's working like a charm. It's very useful to connect directly to ADLAB domain and perform some actions as a blue teamer to investigate attacks or transfer files to the ADLAB domain.
+
 •	Kansa & Kape: Both these tools are known for DFIR and remote triage. Kansa.ps1 won't work properly on Linux but you can execute its modules directly on the AD machines using powershell remoting
+
 •	Volatility: volatility is a known tool for memory forensics and here we have volatility and volatility3 (with its symbols) installed by default with all their additional modules
+
 •	Dumpit: Dumpit is a known tool to create a memory dump on windows machine, it's included inside tools folder, transfer it to the AD machines using Powershell remoting and collect the memory dump back
+
 •	Python2 and Python3: We have both python2 & 3 installed, just be careful when you are using python or pip
 
 To use powershell remoting:
@@ -122,12 +138,21 @@ This machine has Caldera installed. Using caldera, you can drop a backdoor into 
 
 ## Use Cases
 •	Simulating different attacks and see what type of footprint they leave on the logs or on the system
+
+
 •	Test different attack techniques and develop detections for them
+
 •	Customize the ADLAB environment to simulate your organization environment, test different attack techiques and look for gaps in your organization logs and your detections (Purple teaming)
+
 •	EDR Testing lab
+
 •	Product Security Lab
+
 •	Enterprise Active Directory lab with domain joined devices
+
 •	Malware / reverse engineering to study artifacts against domain joined devices
+
 •	SIEM / Threat Hunting / DFIR / Live Response lab with HELK
+
 
 
