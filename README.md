@@ -3,8 +3,10 @@
 The Purple Team Cloud Lab is a comprehensive, cloud-based Active Directory (AD) lab environment designed to simulate real-world cybersecurity scenarios. This lab facilitates attack simulations and the development of detection rules, enabling a controlled environment for threat hunting and incident response practices. 
 This lab is hosted on AWS Cloud using Terraform for automated provisioning and includes:
 1.	AD Domain: Two machines (Domain Controller and Workstation) running Windows Server 2019 with Sysmon and Winlogbeat installed for log collection.
-2.	Blue Team Environment: Features Threat Hunting ELK (HELK) for monitoring, analysis, and rule creation.
-3.	Red Team Network: Equipped with Caldera for simulating MITRE ATT&CK techniques and includes Atomic Red Team for running pre-configured atomic tests.
+   
+3.	Blue Team Environment: Features Threat Hunting ELK (HELK) for monitoring, analysis, and rule creation.
+   
+5.	Red Team Network: Equipped with Caldera for simulating MITRE ATT&CK techniques and includes Atomic Red Team for running pre-configured atomic tests.
 
 ## Lab Components
 1.	Active Directory Domain:
