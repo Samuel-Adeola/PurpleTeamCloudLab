@@ -54,14 +54,22 @@ To set up the lab, ensure you have:
 •	Terraform added to any folder in your system’s %PATH% environment.
 
 ## Installation Steps
-1.	Prepare AWS
+1.	Prepare AWS:
+   
 o	Create an AWS user with administrator permissions and obtain the ACCESS KEY and SECRET KEY.
+
 o	Run aws configure in the command prompt and provide the keys. Set the region to eu-west-1.
+
 o	In the AWS console, switch to the eu-west-1 region.
+
 o	Navigate to EC2 → Key Pair, create a key named ec2_key_pair (lowercase), and save the .pem file.
-2.	Configure SSH Key
+
+3.	Configure SSH Key:
+4.	
 o	Copy the .pem file to C:\Users\<your-username>\.ssh and rename it to id_rsa.
-3.	Deploy the Lab
+
+5.	Deploy the Lab:
+
 o	Open the command prompt, navigate to the project folder, and run:
 
             terraform init  
