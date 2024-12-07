@@ -31,9 +31,13 @@ o	Alternate option to simulate techniques using Atomic Red Team.
 ## Lab Capabilities
 The lab provides a platform for:
 •	Simulating attacks to observe their impact on system logs and defenses.
+
 •	Developing and testing detection rules.
+
 •	Testing endpoint detection and response (EDR) solutions.
+
 •	Purple Team exercises: Integrating red and blue team activities to enhance organizational defenses.
+
 •	Active Directory lab scenarios for malware analysis, reverse engineering, or SIEM use case testing.
 
 ## Deployment Instructions
