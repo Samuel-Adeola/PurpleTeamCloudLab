@@ -43,9 +43,13 @@ The lab provides a platform for:
 ## Deployment Instructions
 Prerequisites
 To set up the lab, ensure you have:
+
 •	An AWS Account
+
 •	A Windows host machine (or a Windows VM) to run PowerShell scripts.
+
 •	AWS CLI installed.
+
 •	Terraform added to any folder in your system’s %PATH% environment.
 
 ## Installation Steps
