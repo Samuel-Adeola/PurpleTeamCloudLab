@@ -82,18 +82,20 @@ o	Open the command prompt, navigate to the project folder, and run:
 ## Credentials:
 To access the domain, you can use these credentials:
 
-•	Administrator, Pass:LabPass1: this is the local admin account, you can use it remotely with RDP or powershell remoting
+•	Administrator, Pass:LabPass1: this is the local admin account, you can use it remotely with RDP or Powershell remoting
 
 •	adlab\ddean, Pass:LabPass1: This is the domain admin account, you can use it to access both machines as a domain admin
 
 •	adlab\kbaehr, Pass:LabPass1: This is the workstation user, it doesn't have admin privileges (Possible privilege escalation?). Feel free to add him to the local admin group if you want to test UAC bypasses
 
 To access the blue team machine HELK
-•	SSH: you can connect using ssh ec2-user@<blueteam public ip> and it will use your key pair you moved to .ssh folder and renamed to id_rsa
+
+•	SSH: you can connect using ssh ec2-user@<blueteam public ip> and it will use the key pair you moved to .ssh folder and renamed to id_rsa
 
 •	From the browser: use the machine public IP and connect to it using https from your browser with credentials: helk/LabPass1
 
 To access the red team caldera machine
+
 •	SSH: you can connect using ssh ec2-user@<redteam public IP>
 
 •	From the browser: connect using HTTP to port 8888. The credentials are red/LabPass1 or blue/LabPass1.
