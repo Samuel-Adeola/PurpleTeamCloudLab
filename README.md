@@ -64,13 +64,13 @@ o	In the AWS console, switch to the eu-west-1 region.
 
 o	Navigate to EC2 → Key Pair, create a key named ec2_key_pair (lowercase), and save the .pem file.
 
-3.	Configure SSH Key:
-4.	
+2.	Configure SSH Key:
+   
 o	Copy the .pem file to C:\Users\<your-username>\.ssh and rename it to id_rsa.
 
-5.	Deploy the Lab:
+3.	Deploy the Lab:
 
-o	Open the command prompt, navigate to the project folder, and run:
+Open the command prompt, navigate to the project folder, and run:
 
             terraform init  
 
@@ -78,11 +78,13 @@ o	Open the command prompt, navigate to the project folder, and run:
 
 •  Confirm with "yes" when prompted. The setup will take approximately 40 minutes.
 
-4.	  Access Your Lab
+4.	  Access Your Lab:
 •	Use provided credentials (see below) to access different machines.
+
 •	Remember, keeping the lab running will incur AWS costs.
 
-5.	Cleanup
+5.	Cleanup:
+   
 •	To destroy the lab, run:
 
             terraform destroy --auto-approve  
@@ -96,13 +98,13 @@ To access the domain, you can use these credentials:
 
 •	adlab\kbaehr, Pass:LabPass1: This is the workstation user, it doesn't have admin privileges (Possible privilege escalation?). Feel free to add him to the local admin group if you want to test UAC bypasses
 
-To access the blue team machine HELK
+To access the blue team machine HELK:
 
 •	SSH: you can connect using ssh ec2-user@<blueteam public ip> and it will use the key pair you moved to .ssh folder and renamed to id_rsa
 
 •	From the browser: use the machine public IP and connect to it using https from your browser with credentials: helk/LabPass1
 
-To access the red team caldera machine
+To access the red team caldera machine:
 
 •	SSH: you can connect using ssh ec2-user@<redteam public IP>
 
@@ -147,11 +149,11 @@ This machine is created not just for log analysis but also for more in-depth inv
 To use powershell remoting:
 This script will connect to ADLAB Domain controller, feel free to update it to connect to the workstation or to use another user.
 
-$DefaultPassword = "LabPass1"
-$IPAddr = "192.168.10.100"
-$securePassword = ConvertTo-SecureString -AsPlainText -Force $DefaultPassword
-$ddean = New-Object System.Management.Automation.PSCredential "adlab\ddean", $securePassword
-Enter-PSSession -ComputerName $IPAddr -Authentication Negotiate -Credential $ddean
+                  $DefaultPassword = "LabPass1"
+                  $IPAddr = "192.168.10.100"
+                  $securePassword = ConvertTo-SecureString -AsPlainText -Force $DefaultPassword
+                  $ddean = New-Object System.Management.Automation.PSCredential "adlab\ddean", $securePassword
+                  Enter-PSSession -ComputerName $IPAddr -Authentication Negotiate -Credential $ddean
 
 ## Red Team Caldera
 This machine has Caldera installed. Using caldera, you can drop a backdoor into your ADLAB machines and use it to control the domain, execute powershell commands remotely and simulate over 800 MITRE ATT&CK techniques. Caldera has up to 4 different types of backdoors and it's built by MITRE organization itself.
