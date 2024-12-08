@@ -21,8 +21,8 @@ runcmd:
   - sudo sh -c 'python3 server.py & sleep 30; kill $!' &
   - sleep 30
   - sudo chmod 777 conf/local.yml
-  - sudo sed -i '/^\s*red:\s/s/:.*/:\ LabPass1/' conf/local.yml
-  - sudo sed -i '/^\s*blue:\s/s/:.*/:\ LabPass1/' conf/local.yml
+  - sudo sed -i '/^\s*red:\s/s/:.*/:\ AccessPass0/' conf/local.yml
+  - sudo sed -i '/^\s*blue:\s/s/:.*/:\ AccessPass0/' conf/local.yml
   - sh -c 'python3 server.py & sleep 30; kill $!' &
   - sleep 30
   - echo "[Unit]" > /etc/systemd/system/caldera.service
