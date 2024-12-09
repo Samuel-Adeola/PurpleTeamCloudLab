@@ -18,7 +18,7 @@ resource "aws_internet_gateway" "adlab_gw" {
 resource "aws_subnet" "adlab_subnet" {
   vpc_id            = aws_vpc.adlab_vpc.id
   cidr_block        = "${var.cidr_prefix}.10.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = "eu-west-1b"
   map_public_ip_on_launch = true
   depends_on = [aws_internet_gateway.adlab_gw]
 
@@ -32,7 +32,7 @@ resource "aws_subnet" "adlab_subnet" {
 resource "aws_subnet" "blueteam_subnet" {
   vpc_id            = aws_vpc.adlab_vpc.id
   cidr_block        = "${var.cidr_prefix}.20.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = "eu-west-1b"
   map_public_ip_on_launch = true
   depends_on = [aws_internet_gateway.adlab_gw]
 
@@ -46,7 +46,7 @@ resource "aws_subnet" "blueteam_subnet" {
 resource "aws_subnet" "attacker_subnet" {
   vpc_id            = aws_vpc.adlab_vpc.id
   cidr_block        = "${var.cidr_prefix}.30.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = "eu-west-1b"
   map_public_ip_on_launch = true
   depends_on = [aws_internet_gateway.adlab_gw]
 
