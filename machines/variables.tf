@@ -36,7 +36,7 @@ variable "attacker_subnet_id" {
 
 variable "default_password" {
     type = string
-    default = "LabPass1"
+    default = "AccessPass0"
 }
 
 variable "adlab_domain" {
