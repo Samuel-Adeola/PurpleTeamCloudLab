@@ -25,7 +25,7 @@ function Get-AllProcesses {
 }
 #Script For The Workstation
 $remoteUsername = "Administrator"
-$DefaultPassword = "LabPass1"
+$DefaultPassword = "AccessPass0"
 $IPAddr = $args[0]
 
 $securePassword = ConvertTo-SecureString -AsPlainText -Force $DefaultPassword
@@ -55,7 +55,7 @@ Execute-WhenOnline $IPAddr -Credential $cred -ScriptBlock {
 Execute-WhenOnline $IPAddr -Credential $cred -ScriptBlock {
     $DomainName = "adlab.local"
     $remoteUsername = "adlab\kbaehr"
-    $DefaultPassword = "LabPass1"
+    $DefaultPassword = "AccessPass0"
 
     Write-Output "Connecting To Domain Controller" | Out-File  C:/Log.txt -Append
     $securePassword = ConvertTo-SecureString -AsPlainText -Force $DefaultPassword
