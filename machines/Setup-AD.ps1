@@ -27,7 +27,7 @@ $IPAddr = $args[0]
 
 #Script For The Domain Controller
 $remoteUsername = "Administrator"
-$DefaultPassword = "AccessPass0"
+$DefaultPassword = "LabPass1"
 
 $securePassword = ConvertTo-SecureString -AsPlainText -Force $DefaultPassword
 $cred = New-Object System.Management.Automation.PSCredential $remoteUsername, $securePassword
@@ -49,7 +49,7 @@ Execute-WhenOnline $IPAddr -Credential $cred -ScriptBlock {
 #Setup DNS Server & AD Forest
 Execute-WhenOnline $IPAddr -Credential $cred -ScriptBlock {
     $ForestName = "adlab.local"
-    $DefaultPassword = "AcessPass0"
+    $DefaultPassword = "LabPass1"
     $DomainControllerIPaddress = "192.168.10.100"
     $InterfaceIndex = 4
     Write-Output "Installing Active Directory" | Out-File  C:/Log.txt -Append
@@ -71,7 +71,7 @@ Execute-WhenOnline $IPAddr -Credential $cred -ScriptBlock {
 
 #Installing Different Useful Tools
 Execute-WhenOnline $IPAddr -Credential $cred -ScriptBlock {
-    $DefaultPassword = "AccessPass0"
+    $DefaultPassword = "LabPass1"
 
     #Adding Users to AD
     Write-Output "Adding New Users" | Out-File  C:/Log.txt -Append
