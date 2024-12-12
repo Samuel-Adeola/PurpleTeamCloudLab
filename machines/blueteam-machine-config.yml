@@ -24,9 +24,9 @@ runcmd:
   - sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
   - sudo git clone https://github.com/iknowjason/HELK.git >> /tmp/init.log
   - cd /usr/src/HELK/docker
-  - sudo ./helk_install.sh -p LabPass1 -b 'helk-kibana-analysis-alert' -i 192.168.20.100
+  - sudo ./helk_install.sh -p AccessPass0 -b 'helk-kibana-analysis-alert' -i 192.168.20.100
   - sudo docker network rm helk_network
-  - sudo ./helk_install.sh -p LabPass1 -b 'helk-kibana-analysis-alert' -i 192.168.20.100 
+  - sudo ./helk_install.sh -p AccessPass0 -b 'helk-kibana-analysis-alert' -i 192.168.20.100 
   - cd /home/ec2-user
   - git clone https://github.com/davehull/Kansa.git
   - git clone https://github.com/volatilityfoundation/volatility3.git
