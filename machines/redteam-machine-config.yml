@@ -26,8 +26,8 @@ runcmd:
 
   # Modify configuration file
   - sudo chmod 777 conf/local.yml
-  - sudo sed -i '/^\s*red:\s/s/:.*/:\ AccessPass0/' conf/local.yml
-  - sudo sed -i '/^\s*blue:\s/s/:.*/:\ AccessPass0/' conf/local.yml
+  - sudo sed -i '/^\s*red:\s/s/:.*/:\ PassAccess0/' conf/local.yml
+  - sudo sed -i '/^\s*blue:\s/s/:.*/:\ PassAccess0/' conf/local.yml
 
   # Create and configure a systemd service
   - echo "[Unit]" > /etc/systemd/system/caldera.service
